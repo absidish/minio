@@ -2,18 +2,9 @@
 
 - hosts: localhost
   tasks:
-
-    - name: Disable dpkg fsync
-      raw: test -e /etc/dpkg/dpkg.cfg.d/unsafe-io || echo force-unsafe-io > /etc/dpkg/dpkg.cfg.d/unsafe-io
-
-    - name: Upgrade debian
-      apt:
-        update_cache: true
-        upgrade: true
-
-    - name: Download foo.conf
+    - name: Download minio
       shell:
-        cmd: wget --no-check-certificate -O /tmp/test/minio https://dl.min.io/server/minio/release/linux-amd64/minio
+        cmd: wget --no-check-certificate -O /tmp/minio https://dl.min.io/server/minio/release/linux-amd64/minio
 
 - hosts: all
   remote_user: root
@@ -33,7 +24,7 @@
 
     - name: copy minio binary
       copy:
-        src: /tmp/test/minio
+        src: /tmp/minio
         dest: /usr/local/bin/minio
         mode: 777    
 

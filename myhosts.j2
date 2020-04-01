@@ -1,11 +1,7 @@
-
-
-
-MINIO_VOLUMES={% for host in vars['play_hosts'] %}http://{{host}}:9000/data {% endfor %}
+MINIO_VOLUMES={% for host in vars['play_hosts'] %}http://{{host}}:9199/data {% endfor %}
 
 MINIO_OPTS="--address :9199"
 
 MINIO_ACCESS_KEY="AKaHEgQ4II0S7BjT6DjAUDA4BX"
 
 MINIO_SECRET_KEY="SKFzHq5iDoQgF7gyPYRFhzNMYSvY6ZFMpH"
-

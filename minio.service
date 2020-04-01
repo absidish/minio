@@ -6,17 +6,13 @@ After=network-online.target
 AssertFileIsExecutable=/usr/local/bin/minio
 
 [Service]
-WorkingDirectory=/usr/local
+WorkingDirectory=/usr/local/
 
-#User=minio-user
-#Group=minio-user
 
-#EnvironmentFile=-/etc/default/minio
-#ExecStartPre=/bin/bash -c "if [ -z \"${MINIO_VOLUMES}\" ]; then echo \"Variable MINIO_VOLUMES not set in /etc/default/minio\"; exit 1; fi"
-#ExecStartPre=/bin/bash -c "if [ -z \"${MINIO_ACCESS_KEY}\" ]; then echo \"Variable MINIO_ACCESS_KEY not set in /etc/default/minio\"; exit 1; fi"
-#ExecStartPre=/bin/bash -c "if [ -z \"${MINIO_SECRET_KEY}\" ]; then echo \"Variable MINIO_SECRET_KEY not set in /etc/default/minio\"; exit 1; fi"
+EnvironmentFile=/etc/default/minio
+ExecStartPre=/bin/bash -c "if [ -z \"${MINIO_VOLUMES}\" ]; then echo \"Variable MINIO_VOLUMES not set in /etc/default/minio\"; exit 1; fi"
 
-ExecStart=/usr/local/bin/minio server {% for host in vars['play_hosts'] %}http://{{host}}:9000/data {% endfor %}
+ExecStart=/usr/local/bin/minio server $MINIO_OPTS $MINIO_VOLUMES
 
 # Let systemd restart this service always
 Restart=always

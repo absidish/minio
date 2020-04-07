@@ -8,7 +8,19 @@
       "hostname": "minio",
       "template": "debian-stretch",
       "peer-criteria": "gr1",
-      "size": "${containerSize}",
+      "size": "CUSTOM",
+      "ram": {
+        "type": "ram",
+        "value": "${ram}"
+      },
+      "cpu": {
+        "type": "cpu",
+        "value": "${cpu}"
+      },
+      "disk": {
+        "type": "disk",
+        "value": "${disk}"
+      },
       "peer-layout": "d2"
     }
   ],
@@ -63,6 +75,24 @@
             "type": "enum",
             "default": "SMALL",
             "validation": "SMALL,MEDIUM,LARGE,HUGE"
-        }
+    },
+      "ram": {
+      "description": "RAM in MB",
+      "type": "int",
+      "default": "128",
+      "validation": "[0-9]+"
+    },
+      "cpu": {
+      "description": "CPU in %",
+      "type": "int",
+      "default": "10",
+      "validation": "[0-9]+"
+     },
+      "disk": {
+      "description": "DISK in GB",
+      "type": "int",
+      "default": "10",
+      "validation": "[0-9]+"
+    }
   }
 }

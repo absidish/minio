@@ -21,6 +21,15 @@
         "type": "disk",
         "value": "${disk}"
       },
+     "port-mapping": [
+        {
+          "protocol": "https",
+          "domain": "${domain}",
+          "internal-port": "9199",
+          "external-port": "443",
+          "ssl_backend": "true"
+        }
+      ],
       "peer-layout": "d2"
     }
   ],
@@ -93,6 +102,12 @@
       "type": "int",
       "default": "10",
       "validation": "[0-9]+"
+    },
+    "domain": {	
+      "description": "Enter the domain name",	
+      "type": "domain",	
+      "default": "change.the.domain",	
+      "validation": "[a-zA-Z0-9]+"	
     }
   }
 }

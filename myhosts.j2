@@ -1,4 +1,4 @@
-MINIO_VOLUMES={% for host in vars['play_hosts'] %}http://{{host}}:9199/data {% endfor %}
+MINIO_VOLUMES={% for host in vars['play_hosts'] %}http://{{host}}:9199/home/data {% endfor %}
 
 MINIO_OPTS="--address :9199"
 

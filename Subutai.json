@@ -49,7 +49,14 @@
     "source-url": "https://github.com/absidish/minio/archive/master.zip",
     "ansible-playbook": "main.yml",
     "extra-vars": [
-      
+       {
+        "key": "accessKey",
+        "value": "${accessKey}"
+        },
+            {
+        "key": "secretKey",
+        "value": "${secretKey}"
+        }
     ],
     "groups": [
       {

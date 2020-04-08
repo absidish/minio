@@ -42,4 +42,9 @@
     - name: systemd reload
       systemd:
          daemon_reload: yes
-
+         
+    - name: start and enable minio service
+      systemd:	
+        name: minio	
+        state: started	
+        enabled: yes

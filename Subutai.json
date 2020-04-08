@@ -23,10 +23,10 @@
       },
      "port-mapping": [
         {
-          "protocol": "https",
+          "protocol": "http",
           "domain": "${domain}",
           "internal-port": "9199",
-          "external-port": "443",
+          "external-port": "8080",
           "ssl_backend": "true"
         }
       ],
@@ -79,12 +79,6 @@
       "default": "1",
       "validation": "[0-9]+"
     },
-    "containerSize": {
-            "description": "Container Size",
-            "type": "enum",
-            "default": "SMALL",
-            "validation": "SMALL,MEDIUM,LARGE,HUGE"
-    },
       "ram": {
       "description": "RAM in MB",
       "type": "int",
@@ -108,6 +102,17 @@
       "type": "domain",	
       "default": "change.the.domain",	
       "validation": "[a-zA-Z0-9]+"	
-    }
+    },
+       "accessKey": {
+      "description": "On MinIO admin credentials or root credentials are only allowed to be changed using ENVs namely MINIO_ACCESS_KEY and MINIO_SECRET_KEY",
+      "type": "string",
+      "default": "changeme",
+      "validation": "[a-zA-Z0-9]+"
+    },   "secretKey": {
+      "description": "On MinIO admin credentials or root credentials are only allowed to be changed using ENVs namely MINIO_ACCESS_KEY and MINIO_SECRET_KEY",
+      "type": "string",
+      "default": "changeme",
+      "validation": "[a-zA-Z0-9]+"
+    },
   }
 }

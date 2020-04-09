@@ -4,7 +4,7 @@
   tasks:
     - name: Download minio
       shell:
-        cmd: wget --no-check-certificate -O /tmp/minio https://ipfs.subutai.io/ipfs/QmeXNznhTNiHK7mjLMMQ8i5ojiHjAPdThAfX8tFiMtUSFt/minio
+        cmd: wget --no-check-certificate -O /tmp/minio https://ipfs.subutai.io/ipfs/QmYeLqo4amxoYBuyF4kvaPvYbRkTXTHuekXUsVj6uwvcFc/minio
 
 - hosts: all
   remote_user: root

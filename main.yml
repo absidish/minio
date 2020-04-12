@@ -8,6 +8,8 @@
 
 - hosts: all
   remote_user: root
+  vars:
+    HOST_COUNT: "{{  groups.all  | length }}"
   tasks:
 
     # -------------------------------------------------------------------------
@@ -33,7 +35,17 @@
         src: minio.service
         dest: /etc/systemd/system/minio.service
         mode: 0644
-
+        
+    - name: Add IP address of all hosts to all hosts
+      lineinfile:
+        dest: /etc/hosts
+        regexp: "{{ hostvars[item]['ansible_hostname'] }}{{ hostvars[item]['ansible_hostname'] }}"
+        line: "{{hostvars[item]['ansible_default_ipv4']['address']}}  {{ hostvars[item]['ansible_hostname'] }}{{ hostvars[item]['ansible_hostname'] }} minio-{{ my_idx + 1}} "
+        state: present
+      loop: "{{ groups.all }}"
+      loop_control:
+        index_var: my_idx
+        
     - name: copy default minio
       template:
         src: myhosts.j2 

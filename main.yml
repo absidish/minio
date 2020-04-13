@@ -48,7 +48,7 @@
         
     - name: copy default minio
       template:
-        src: myhosts.j2 
+        src: minio.j2 
         dest: /etc/default/minio
 
     - name: systemd reload

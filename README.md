@@ -6,3 +6,7 @@ MinIO is High Performance Object Storage released under Apache License v2.0. It 
 ```
 Minio designed to deploy once and forget. You can not add new disks to an existing setup.
 ```
+
+
+we are using version `RELEASE.2019-04-23T23-50-36Z`
+https://github.com/minio/minio/issues/7662

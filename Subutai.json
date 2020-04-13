@@ -75,19 +75,19 @@
       "validation": "[a-zA-Z0-9]+"
     },
     "containerPerPeerCount": {
-      "description": "Containers per peer count",
+      "description": "Containers count which will be located in each peer",
       "type": "int",
       "default": "1",
       "validation": "[0-9]+"
     },
     "peerCount": {
-      "description": "peer count",
+      "description": "Peer count which will where will be located containers",
       "type": "int",
       "default": "1",
       "validation": "[0-9]+"
     },
       "ram": {
-      "description": "RAM in MB",
+      "description": "RAM amount in MB, each container will have entered about of RAM",
       "type": "int",
       "default": "128",
       "validation": "[0-9]+"
@@ -99,7 +99,7 @@
       "validation": "[0-9]+"
      },
       "disk": {
-      "description": "DISK in GB",
+      "description": "DISK amount in GB, each container will have entered storage amount in GB",
       "type": "int",
       "default": "10",
       "validation": "[0-9]+"
@@ -110,12 +110,13 @@
       "default": "change.the.domain",	
       "validation": "[a-zA-Z0-9]+"	
     },
-       "accessKey": {
+    "accessKey": {
       "description": "On MinIO admin credentials or root credentials are only allowed to be changed using ENVs namely MINIO_ACCESS_KEY and MINIO_SECRET_KEY",
       "type": "string",
       "default": "changeme",
       "validation": "[a-zA-Z0-9]+"
-    },   "secretKey": {
+    }, 
+    "secretKey": {
       "description": "On MinIO admin credentials or root credentials are only allowed to be changed using ENVs namely MINIO_ACCESS_KEY and MINIO_SECRET_KEY",
       "type": "string",
       "default": "changeme",
